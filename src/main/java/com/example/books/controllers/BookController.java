@@ -1,7 +1,7 @@
 package com.example.books.controllers;
 
-import com.example.books.models.Book;
-import com.example.books.repositories.BookRepository;
+import com.example.books.entities.Book;
+import com.example.books.services.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,10 +16,11 @@ import java.util.List;
 public class BookController {
 
     @Autowired
-    BookRepository bookRepository;
+    BookService bookManager;
 
     @GetMapping("/book")
     public List<Book> getAllBooks() {
-        return bookRepository.findAll();
+        return bookManager.getBooks();
     }
+
 }

@@ -1,19 +1,26 @@
-package com.example.books.models;
+package com.example.books.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity(name = "Book")
 public class Book implements Serializable {
 
+    @Column(name = "ID", nullable = false, length = 10)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String title;
-    private String author;
+
+    @Column(name = "Title")
+    public String title;
+
+    @Column(name = "LastName")
+    public String author;
+
+    @OneToMany(mappedBy = "book", fetch = FetchType.LAZY)
+    private Set<Page> pages = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -37,5 +44,13 @@ public class Book implements Serializable {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public Set<Page> getPages() {
+        return pages;
+    }
+
+    public void setPages(Set<Page> pages) {
+        this.pages = pages;
     }
 }
