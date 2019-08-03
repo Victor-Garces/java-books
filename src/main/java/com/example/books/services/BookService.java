@@ -1,16 +1,16 @@
 package com.example.books.services;
 
 import com.example.books.entities.Book;
-import com.example.books.repositories.BookRepository;
+import com.example.books.repositories.IBookRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class BookService {
-    private final BookRepository bookRepository;
+    private final IBookRepository bookRepository;
 
-    public BookService(BookRepository bookRepository) {
+    public BookService(IBookRepository bookRepository) {
         this.bookRepository = bookRepository;
     }
 
