@@ -11,7 +11,7 @@ import java.util.Objects;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/api/books")
+@RequestMapping("/api/pages")
 public class PageController {
 
     private final PageService pageService;
@@ -22,7 +22,7 @@ public class PageController {
         this.modelMapper = modelMapper;
     }
 
-    @GetMapping("{id}/page/{pageId}")
+    @GetMapping("{pageId}")
     public PageDto getPageById(@PathVariable(value = "pageId") Long pageId, @RequestParam(name = "format", required = false) String format) {
         Page page = pageService.getPageById(pageId);
         PageDto pageDto = modelMapper.map(page, PageDto.class);
