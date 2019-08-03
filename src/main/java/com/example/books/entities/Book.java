@@ -5,21 +5,16 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity(name = "Book")
+@Entity
 public class Book implements Serializable {
 
-    @Column(name = "ID", nullable = false, length = 10)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String title;
+    private String author;
 
-    @Column(name = "Title")
-    public String title;
-
-    @Column(name = "LastName")
-    public String author;
-
-    @OneToMany(mappedBy = "book", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
     private Set<Page> pages = new HashSet<>();
 
     public Long getId() {

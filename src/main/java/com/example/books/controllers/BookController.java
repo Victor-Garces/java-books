@@ -2,7 +2,6 @@ package com.example.books.controllers;
 
 import com.example.books.entities.Book;
 import com.example.books.services.BookService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,13 +11,16 @@ import java.util.List;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/books")
 public class BookController {
 
-    @Autowired
-    BookService bookManager;
+    private final BookService bookManager;
 
-    @GetMapping("/book")
+    public BookController(BookService bookManager) {
+        this.bookManager = bookManager;
+    }
+
+    @GetMapping("")
     public List<Book> getAllBooks() {
         return bookManager.getBooks();
     }

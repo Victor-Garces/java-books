@@ -1,18 +1,21 @@
 package com.example.books.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity(name = "Page")
+@Entity
 public class Page implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Lob
     private String content;
+
+    @ManyToOne
+    @JoinColumn
+    private Book book;
 
     public Long getId() {
         return id;
@@ -28,5 +31,13 @@ public class Page implements Serializable {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Book getBook() {
+        return book;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
     }
 }
