@@ -8,7 +8,7 @@ Library API - Spring Boot, MS-SQL and JPA Rest API
 
 2. Maven - 3.3.9
 
-3. MySQL - 14.0    
+3. MS-SQL - 14.0  
 
 ## Steps to Setup
 
