@@ -28,7 +28,7 @@ create database Library
 
 + open `src/main/resources/application.properties`
 
-+ change `spring.datasource.username` and `spring.datasource.username` as per your with your instance credentials.
++ change `spring.datasource.username` and `spring.datasource.username` with your instance credentials.
 
 **4. Build and run the app using maven**
 
