@@ -4,6 +4,7 @@ public class BookDto {
     private Long id;
     private String title;
     private String author;
+    private long[] pageIds;
 
     public Long getId() {
         return id;
@@ -27,5 +28,13 @@ public class BookDto {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public long[] getPageIds() {
+        return pageIds;
+    }
+
+    public void setPageIds(long[] pageIds) {
+        this.pageIds = pageIds;
     }
 }
