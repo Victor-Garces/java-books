@@ -24,9 +24,9 @@ git clone https://github.com/Victor-Garces/java-books.git
 create database Library
 ```
 
-**3. Change mysql username and password as per your installation**
+**3. Change MS-SQL username and password as per your installation**
 
-+ open `src/main/resources/db.properties`
++ open `src/main/resources/application.properties`
 
 + change `spring.datasource.username` and `spring.datasource.username` as per your with your instance credentials.
 
